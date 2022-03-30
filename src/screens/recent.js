@@ -39,15 +39,17 @@ const Films = ({ navigation }) => {
     <FlatList
       data={films}
       renderItem={({ item }) => (
-        <View>
+        <ViewCard>
           <Button
             onPress={() => navigation.navigate('Details', { id: item.id })}
           >
-            <Text>{item.original_title}</Text>
-            <Avatar
-              urlImage={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-            />
-            <Text>{item.overview}</Text>
+            <Title>{item.original_title}</Title>
+            <ViewImage>
+              <Avatar
+                urlImage={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              />
+            </ViewImage>
+            <Overview>{item.overview}</Overview>
             <Button
               onPress={() => {
                 checkFavorite(item)
@@ -56,7 +58,7 @@ const Films = ({ navigation }) => {
               <TextStyled>Add / Remove to Favorite</TextStyled>
             </Button>
           </Button>
-        </View>
+        </ViewCard>
       )}
       keyExtractor={item => item.id}
     />
@@ -64,8 +66,29 @@ const Films = ({ navigation }) => {
 }
 
 const Button = styled.TouchableOpacity``
-const TextStyled = styled.Text`
+
+const ViewCard = styled.View`
+  border: 5px solid blue;
+`
+const Overview = styled.Text`
+  padding: 15px;
   font-size: 20px;
+`
+
+const TextStyled = styled.Text`
+  text-align: center;
+  font-size: 25px;
+  color: green;
+`
+const Title = styled.Text`
+  font-family: zocial;
+  text-align: center;
+  font-size: 30px;
+  color: red;
+`
+
+const ViewImage = styled.View`
+  align-items: center;
 `
 
 Films.propTypes = {}

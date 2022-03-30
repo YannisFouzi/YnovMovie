@@ -49,7 +49,7 @@ const Films = ({ navigation }) => {
                 urlImage={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
               />
             </ViewImage>
-            <Text>{item.overview}</Text>
+            <Overview>{item.overview}</Overview>
             <Button
               onPress={() => {
                 checkFavorite(item)
@@ -70,6 +70,10 @@ const Button = styled.TouchableOpacity``
 const ViewCard = styled.View`
   border: 5px solid blue;
 `
+const Overview = styled.Text`
+  padding: 15px;
+  font-size: 20px;
+`
 
 const TextStyled = styled.Text`
   text-align: center;
@@ -77,6 +81,7 @@ const TextStyled = styled.Text`
   color: green;
 `
 const Title = styled.Text`
+  font-family: zocial;
   text-align: center;
   font-size: 30px;
   color: red;

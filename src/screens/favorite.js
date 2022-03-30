@@ -49,7 +49,7 @@ const Favorite = ({ navigation }) => {
           >
             <Avatar urlImage={item.image} />
             <Text>{item.name}</Text>
-            <Text>{item.description}</Text>
+            <Overview>{item.description}</Overview>
             <Button
               onPress={() => {
                 checkFavorite(item)
@@ -66,6 +66,11 @@ const Favorite = ({ navigation }) => {
 
 const Button = styled.TouchableOpacity``
 const TextStyled = styled.Text`
+  font-size: 20px;
+`
+
+const Overview = styled.Text`
+  padding: 15px;
   font-size: 20px;
 `
 

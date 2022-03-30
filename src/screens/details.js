@@ -26,14 +26,46 @@ const Details = ({ route }) => {
   }, [])
 
   return (
-    <View>
-      <Text>{film.original_title}</Text>
-      <Avatar urlImage={`https://image.tmdb.org/t/p/w500${film.poster_path}`} />
-      <Text>{film.overview}</Text>
-      <Text>Date de sortie : {film.release_date}</Text>
-      <Text>Moyenne des votes : {film.vote_average}</Text>
-    </View>
+    <FlatList
+      data={Details}
+      renderItem={({ item }) => (
+        <ViewCard>
+          <Title>{film.original_title}</Title>
+          <ViewImage>
+            <Avatar
+              urlImage={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
+            />
+          </ViewImage>
+          <Overview>{film.overview}</Overview>
+          <TextStyled>Date de sortie : {film.release_date}</TextStyled>
+          <TextStyled>Moyenne des votes : {film.vote_average}</TextStyled>
+        </ViewCard>
+      )}
+    />
   )
 }
+const ViewCard = styled.View`
+  border: 5px solid blue;
+`
+const Overview = styled.Text`
+  padding: 15px;
+  font-size: 20px;
+`
+
+const TextStyled = styled.Text`
+  text-align: center;
+  font-size: 25px;
+  color: green;
+`
+const Title = styled.Text`
+  font-family: zocial;
+  text-align: center;
+  font-size: 30px;
+  color: red;
+`
+
+const ViewImage = styled.View`
+  align-items: center;
+`
 
 export default Details
