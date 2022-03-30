@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Text, FlatList, View } from 'react-native'
-import styled from 'styled-components'
+import { FlatList } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import readFavorite from '../utils/readFavorite'
+import Button from '../components/button'
 import Avatar from '../components/avatar'
+import Title from '../components/title'
+import ViewCard from '../components/viewCard'
+import TextStyled from '../components/textStyled'
+import Overview from '../components/overview'
+import ViewImage from '../components/viewImage'
 import addToFavorite from '../utils/addToFavorite'
 import removeFromFavorite from '../utils/removeFromFavorite'
 
@@ -43,12 +48,14 @@ const Favorite = ({ navigation }) => {
       keyExtractor={item => item.id}
       data={fav}
       renderItem={({ item }) => (
-        <View>
+        <ViewCard>
           <Button
             onPress={() => navigation.navigate('Details', { id: item.id })}
           >
-            <Avatar urlImage={item.image} />
-            <Text>{item.name}</Text>
+            <Title>{item.name}</Title>
+            <ViewImage>
+              <Avatar urlImage={item.image} />
+            </ViewImage>
             <Overview>{item.description}</Overview>
             <Button
               onPress={() => {
@@ -58,20 +65,10 @@ const Favorite = ({ navigation }) => {
               <TextStyled>Retirer des favoris</TextStyled>
             </Button>
           </Button>
-        </View>
+        </ViewCard>
       )}
     />
   )
 }
-
-const Button = styled.TouchableOpacity``
-const TextStyled = styled.Text`
-  font-size: 20px;
-`
-
-const Overview = styled.Text`
-  padding: 15px;
-  font-size: 20px;
-`
 
 export default Favorite

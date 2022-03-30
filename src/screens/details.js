@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import styled from 'styled-components'
 import Avatar from '../components/avatar'
 
@@ -23,7 +23,7 @@ const Details = ({ route }) => {
       .catch(err => {
         console.error(err)
       })
-  }, [])
+  })
 
   return (
     <FlatList

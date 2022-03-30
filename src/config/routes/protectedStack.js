@@ -1,5 +1,4 @@
 import React from 'react'
-import { Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import FilmsStack from './filmsStack'
@@ -11,7 +10,7 @@ Icon.loadFont()
 
 const ProtectedStack = () => {
   return (
-    <BottomTab.Navigator>
+    <BottomTab.Navigator screenOptions={{ headerShown: false }}>
       <BottomTab.Screen
         name='Movie_Database'
         options={{
@@ -35,6 +34,7 @@ const ProtectedStack = () => {
       <BottomTab.Screen
         name='Favorites'
         options={{
+          headerShown: true,
           tabBarIcon: ({ color, size }) => (
             <Icon name='heart' color={color} size={size} />
           )
