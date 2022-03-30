@@ -1,17 +1,17 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Films from '../../screens/characters'
+import Films from '../../screens/films'
 import Details from '../../screens/details'
 
 const Stack = createNativeStackNavigator()
 
-const CharactersStack = () => {
+const FilmsStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Films' component={Films} />
+      <Stack.Screen name='Movies' component={Films} />
       <Stack.Screen name='Details' component={Details} />
     </Stack.Navigator>
   )
 }
 
-export default CharactersStack
+export default FilmsStack

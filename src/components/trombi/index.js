@@ -3,13 +3,13 @@ import { View, Text, Image, FlatList } from 'react-native'
 import axios from 'axios'
 
 const Trombi = () => {
-  const [characters, setCharacters] = useState([])
+  const [films, setFilms] = useState([])
 
   useEffect(() => {
     axios
       .get('https://hp-api.herokuapp.com/api/characters')
       .then(res => {
-        setCharacters(res.data)
+        setFilms(res.data)
       })
       .catch(err => {
         console.error(err)
@@ -19,7 +19,7 @@ const Trombi = () => {
     <View>
       <Text>Trombi</Text>
       <FlatList
-        data={characters}
+        data={films}
         renderItem={({ item }) => (
           <View>
             <Image

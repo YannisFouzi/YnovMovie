@@ -9,8 +9,8 @@ const removeFromFavorite = async item => {
     const jsonValue = JSON.stringify(filteredFavorite)
     await AsyncStorage.setItem('favorite', jsonValue)
     showMessage({
-      message: `${item.name} à bien été supprimé des favoris`,
-      type: 'info'
+      message: `${item.original_title} à bien été supprimé des favoris`,
+      type: 'danger'
     })
   } catch (e) {
     showMessage({

@@ -10,11 +10,16 @@ const addToFavorite = async item => {
   try {
     const jsonValue = JSON.stringify([
       ...arrayOfFavorite,
-      { name: item.name, id: item.id }
+      {
+        name: item.original_title,
+        description: item.overview,
+        image: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+        id: item.id
+      }
     ])
     await AsyncStorage.setItem('favorite', jsonValue)
     showMessage({
-      message: `${item.name} à bien été ajouté aux favoris`,
+      message: `${item.original_title} à bien été ajouté aux favoris`,
       type: 'success'
     })
   } catch (e) {

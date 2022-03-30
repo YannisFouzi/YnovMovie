@@ -1,17 +1,47 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import CharactersStack from './charactersStack'
-import LoginStack from './loginStack'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import FilmsStack from './filmsStack'
+import RecentStack from './recentStack'
 import Favorite from '../../screens/favorite'
 
-const Bottom = createBottomTabNavigator()
+const BottomTab = createBottomTabNavigator()
+Icon.loadFont()
 
 const ProtectedStack = () => {
   return (
-    <Bottom.Navigator>
-      <Bottom.Screen name='Movie Database' component={CharactersStack} />
-      <Bottom.Screen name='Favoris' component={Favorite} />
-    </Bottom.Navigator>
+    <BottomTab.Navigator>
+      <BottomTab.Screen
+        name='Movie_Database'
+        options={{
+          tabBarLabel: 'Most popular movie',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name='film' color={color} size={size} />
+          )
+        }}
+        component={FilmsStack}
+      />
+      <BottomTab.Screen
+        name='Most_recent'
+        options={{
+          tabBarLabel: 'Most recent',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name='calendar' color={color} size={size} />
+          )
+        }}
+        component={RecentStack}
+      />
+      <BottomTab.Screen
+        name='Favorites'
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name='heart' color={color} size={size} />
+          )
+        }}
+        component={Favorite}
+      />
+    </BottomTab.Navigator>
   )
 }
 
