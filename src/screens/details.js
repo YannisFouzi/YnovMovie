@@ -1,7 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native'
-import styled from 'styled-components'
+import Title from '../components/title'
+import ViewCard from '../components/viewCard'
+import TextStyled from '../components/textStyled'
+import Overview from '../components/overview'
+import ViewImage from '../components/viewImage'
 import Avatar from '../components/avatar'
 
 const Details = ({ route }) => {
@@ -44,28 +48,5 @@ const Details = ({ route }) => {
     />
   )
 }
-const ViewCard = styled.View`
-  border: 5px solid blue;
-`
-const Overview = styled.Text`
-  padding: 15px;
-  font-size: 20px;
-`
-
-const TextStyled = styled.Text`
-  text-align: center;
-  font-size: 25px;
-  color: green;
-`
-const Title = styled.Text`
-  font-family: zocial;
-  text-align: center;
-  font-size: 30px;
-  color: red;
-`
-
-const ViewImage = styled.View`
-  align-items: center;
-`
 
 export default Details
